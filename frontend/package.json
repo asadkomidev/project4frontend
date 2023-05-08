@@ -1,0 +1,46 @@
+{
+  "name": "frontend",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "node server.js",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "clear-all": "rimraf ./.cache ./.next ./node_modules ./package-lock.json"
+  },
+  "dependencies": {
+    "@headlessui/react": "^1.7.13",
+    "@heroicons/react": "^2.0.17",
+    "@reduxjs/toolkit": "^1.9.5",
+    "@tailwindcss/aspect-ratio": "^0.4.2",
+    "@tailwindcss/forms": "^0.5.3",
+    "@tailwindcss/typography": "^0.5.9",
+    "axios": "^1.4.0",
+    "clsx": "^1.2.1",
+    "express": "^4.18.2",
+    "focus-visible": "^5.2.0",
+    "http-proxy-middleware": "^1.0.6",
+    "moment": "^2.29.4",
+    "next": "13.3.4",
+    "postcss-focus-visible": "^6.0.4",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-icons": "^4.8.0",
+    "react-redux": "^8.0.5",
+    "react-router-dom": "^6.11.0",
+    "react-sortablejs": "^6.1.4",
+    "redux": "^4.2.1",
+    "swr": "^2.1.5"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.14",
+    "concurrently": "^8.0.1",
+    "eslint": "8.26.0",
+    "eslint-config-next": "13.0.2",
+    "postcss": "^8.4.23",
+    "prettier": "^2.8.8",
+    "prettier-plugin-tailwindcss": "^0.2.8",
+    "tailwindcss": "^3.3.2"
+  }
+}
