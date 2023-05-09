@@ -126,9 +126,15 @@ const ProductForm = ({ title, product }) => {
       if (product?._id) {
         const id = product._id
 
-        await axios.put('/api/edit-product/' + id, { ...data })
+        await axios.put(
+          'https://project4backend.herokuapp.com/api/edit-product/' + id,
+          { ...data }
+        )
       } else {
-        await axios.post(`/api/add-product`, data)
+        await axios.post(
+          `https://project4backend.herokuapp.com/api/add-product`,
+          data
+        )
       }
 
       router.push('/dashboard')

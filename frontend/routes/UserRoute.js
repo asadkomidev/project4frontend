@@ -22,7 +22,7 @@ const UserRoute = ({ children, showNav = true }) => {
       const { data } = await axios.get(
         'https://project4backend.herokuapp.com/api/current-user'
       )
-      // console.log(data)
+      console.log('', data)
       if (data.ok) setOk(true)
     } catch (err) {
       console.log(err)
@@ -33,7 +33,7 @@ const UserRoute = ({ children, showNav = true }) => {
 
   return (
     <>
-      {ok && (
+      {!ok && (
         <div>
           <div>
             <div>{children}</div>

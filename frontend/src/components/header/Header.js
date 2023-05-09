@@ -22,7 +22,7 @@ const Header = () => {
 
   const dispatchLoader = useDispatch()
 
-  // console.log('user: ', user.name)
+  // console.log('user: ', user?.name)
 
   const logout = async () => {
     // dispatchLoader(SetLoader(true))
