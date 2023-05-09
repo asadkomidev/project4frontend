@@ -26,15 +26,11 @@ export default function Home({ products, categories, subcategories }) {
 }
 
 export async function getServerSideProps() {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_ABS_URL}/all-products?cat=`
-  )
+  const res = await fetch(`${process.env.API}/all-products?cat=`)
   const products = await res.json()
-  const cat = await fetch(`${process.env.NEXT_PUBLIC_ABS_URL}/all-categories`)
+  const cat = await fetch(`${process.env.API}/all-categories`)
   const categories = await cat.json()
-  const subcat = await fetch(
-    `${process.env.NEXT_PUBLIC_ABS_URL}/all-subcategories`
-  )
+  const subcat = await fetch(`${process.env.API}/all-subcategories`)
   const subcategories = await subcat.json()
 
   return {

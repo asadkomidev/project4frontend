@@ -16,7 +16,7 @@ app
       server.use(
         '/api',
         createProxyMiddleware({
-          target: 'http://localhost:8000',
+          target: 'http://3.134.105.196:8000',
           changeOrigin: true,
         })
       )

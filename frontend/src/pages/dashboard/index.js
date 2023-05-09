@@ -77,15 +77,11 @@ const Dashboard = ({ products, categories, subcategories }) => {
 export default Dashboard
 
 export async function getServerSideProps() {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_ABS_URL}/all-products?cat=`
-  )
+  const res = await fetch(`${process.env.API}/all-products?cat=`)
   const products = await res.json()
-  const cat = await fetch(`${process.env.NEXT_PUBLIC_ABS_URL}/all-categories`)
+  const cat = await fetch(`${process.env.API}/all-categories`)
   const categories = await cat.json()
-  const subcat = await fetch(
-    `${process.env.NEXT_PUBLIC_ABS_URL}/all-subcategories?cat=`
-  )
+  const subcat = await fetch(`${process.env.API}/all-subcategories?cat=`)
   const subcategories = await subcat.json()
 
   return {

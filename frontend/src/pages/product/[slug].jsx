@@ -6,8 +6,6 @@ import { StarIcon } from '@heroicons/react/20/solid'
 import { HeartIcon, MinusIcon, PlusIcon } from '@heroicons/react/24/outline'
 import Layout from '@/components/layout/Layout.jsx'
 
-
-
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
@@ -108,9 +106,7 @@ export default function Product({ product }) {
 }
 
 export async function getStaticPaths() {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_ABS_URL}/all-products?cat=`
-  )
+  const res = await fetch(`${process.env.API}/all-products?cat=`)
   const { products } = await res.json()
 
   const paths = products.map((product) => ({
@@ -124,9 +120,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params: { slug } }) {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_ABS_URL}/get-product/${slug}`
-  )
+  const res = await fetch(`${process.env.API}/get-product/${slug}`)
   const product = await res.json()
 
   return {
