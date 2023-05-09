@@ -15,9 +15,7 @@ const EditProduct = ({ product }) => {
 export default EditProduct
 
 export async function getStaticPaths() {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_ABS_URL}/all-products?cat=`
-  )
+  const res = await fetch(`${process.env.API}/all-products?cat=`)
   const { products } = await res.json()
 
   const paths = products.map((product) => ({
@@ -31,9 +29,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params: { slug } }) {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_ABS_URL}/get-product/${slug}`
-  )
+  const res = await fetch(`${process.env.API}/get-product/${slug}`)
   const product = await res.json()
 
   return {

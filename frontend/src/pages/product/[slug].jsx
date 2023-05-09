@@ -106,7 +106,7 @@ export default function Product({ product }) {
 }
 
 export async function getStaticPaths() {
-  const res = await fetch(`${process.env.API}/all-products?cat=`)
+  const res = await fetch(`${process.env.API}/all-products`)
   const { products } = await res.json()
 
   const paths = products.map((product) => ({
