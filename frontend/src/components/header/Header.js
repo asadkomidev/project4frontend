@@ -28,7 +28,9 @@ const Header = () => {
     // dispatchLoader(SetLoader(true))
     dispatch({ type: 'LOGOUT' })
     window.localStorage.removeItem('user')
-    const { data } = await axios.get(`http://3.134.105.196:8000/api/logout`)
+    const { data } = await axios.get(
+      `https://project4backend.herokuapp.com/api/logout`
+    )
     // dispatchLoader(SetLoader(false))
     router.push('/')
   }

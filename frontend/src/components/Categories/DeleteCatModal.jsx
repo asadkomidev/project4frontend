@@ -10,7 +10,7 @@ const DeleteCatModal = ({ open, setOpen, id, name }) => {
   const handleDelete = async () => {
     try {
       await axios.delete(
-        'http://3.134.105.196:8000/api/delete-subcategory/' + id
+        'https://project4backend.herokuapp.com/api/delete-subcategory/' + id
       )
 
       window.location.reload(false)

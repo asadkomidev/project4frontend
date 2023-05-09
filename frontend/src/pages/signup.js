@@ -34,7 +34,7 @@ export default function Signup() {
     try {
       setLoading(true)
       const { data } = await axios.post(
-        `http://3.134.105.196:8000/api/register`,
+        `https://project4backend.herokuapp.com/api/register`,
         {
           name,
           email,

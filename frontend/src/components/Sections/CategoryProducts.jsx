@@ -16,7 +16,9 @@ export default function CategoryProducts({ keyword }) {
 
   const fetchProduct = async () => {
     await axios
-      .get(`http://3.134.105.196:8000/api/all-products?keyword=${keyword}`)
+      .get(
+        `https://project4backend.herokuapp.com/api/all-products?keyword=${keyword}`
+      )
       .then((res) => {
         setProducts(res.data.products)
       })

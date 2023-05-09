@@ -37,10 +37,13 @@ export default function Signin() {
     try {
       dispatchLoader(SetLoader(true))
       setLoading(true)
-      const { data } = await axios.post(`http://3.134.105.196:8000/api/login`, {
-        email,
-        password,
-      })
+      const { data } = await axios.post(
+        `https://project4backend.herokuapp.com/api/login`,
+        {
+          email,
+          password,
+        }
+      )
       dispatchLoader(SetLoader(false))
       dispatch({
         type: 'LOGIN',

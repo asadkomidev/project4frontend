@@ -26,7 +26,7 @@ const CategoryForm = ({ title, product }) => {
 
   const fetchCategories = async () => {
     await axios
-      .get('http://3.134.105.196:8000/api/all-categories')
+      .get('https://project4backend.herokuapp.com/api/all-categories')
       .then((res) => {
         setCategories(res.data.categoryList)
       })

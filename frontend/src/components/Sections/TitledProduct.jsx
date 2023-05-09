@@ -16,13 +16,19 @@ const TitledProduct = ({ title }) => {
 
   const fetchProduct = async () => {
     if (title === 'All Products') {
-      await axios.get(`http://3.134.105.196:8000/api/all-products?keyword=`).then((res) => {
-        setProducts(res.data.products)
-      })
+      await axios
+        .get(`https://project4backend.herokuapp.com/api/all-products?keyword=`)
+        .then((res) => {
+          setProducts(res.data.products)
+        })
     } else {
-      await axios.get(`http://3.134.105.196:8000/api/all-products?keyword=${title}`).then((res) => {
-        setProducts(res.data.products)
-      })
+      await axios
+        .get(
+          `https://project4backend.herokuapp.com/api/all-products?keyword=${title}`
+        )
+        .then((res) => {
+          setProducts(res.data.products)
+        })
     }
   }
 
