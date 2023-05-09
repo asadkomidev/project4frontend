@@ -2,8 +2,7 @@
 
 import { useState } from 'react'
 import { Disclosure, RadioGroup, Tab } from '@headlessui/react'
-import { StarIcon } from '@heroicons/react/20/solid'
-import { HeartIcon, MinusIcon, PlusIcon } from '@heroicons/react/24/outline'
+
 import Layout from '@/components/layout/Layout.jsx'
 
 function classNames(...classes) {
@@ -21,9 +20,9 @@ export default function Product({ product }) {
               {/* Image selector */}
               <div className="mx-auto mt-6 hidden w-full max-w-2xl sm:block lg:max-w-none">
                 <Tab.List className="grid grid-cols-4 gap-6">
-                  {product.product.images.map((image) => (
+                  {product.product.images.map((image, i) => (
                     <Tab
-                      key={image.id}
+                      key={i}
                       className="relative flex h-24 cursor-pointer items-center justify-center rounded-md bg-white text-sm font-medium uppercase text-gray-900 hover:bg-gray-50 focus:outline-none focus:ring focus:ring-opacity-50 focus:ring-offset-4"
                     >
                       {({ selected }) => (
@@ -51,8 +50,8 @@ export default function Product({ product }) {
               </div>
 
               <Tab.Panels className="aspect-h-1 aspect-w-1 w-full">
-                {product.product.images.map((image) => (
-                  <Tab.Panel key={image.id}>
+                {product.product.images.map((image, i) => (
+                  <Tab.Panel key={i}>
                     <img
                       src={image}
                       alt={image}
