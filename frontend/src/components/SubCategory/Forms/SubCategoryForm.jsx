@@ -24,9 +24,11 @@ const SubCategoryForm = ({ title, product }) => {
   }, [])
 
   const fetchCategories = async () => {
-    await axios.get('/api/all-categories').then((res) => {
-      setCategories(res.data.categoryList)
-    })
+    await axios
+      .get('http://3.134.105.196:8000/api/all-categories')
+      .then((res) => {
+        setCategories(res.data.categoryList)
+      })
   }
   // console.log('Cat ID', categories[7]?.category?.name)
   const handleSubmit = async (e) => {
@@ -38,7 +40,7 @@ const SubCategoryForm = ({ title, product }) => {
 
         // await axios.put('/api/edit-product/' + id, { ...data })
       } else {
-        await axios.post(`/api/add-subcategory`, {
+        await axios.post(`http://3.134.105.196:8000/api/add-subcategory`, {
           name,
           category,
         })

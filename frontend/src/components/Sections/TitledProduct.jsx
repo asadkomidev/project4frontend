@@ -16,11 +16,11 @@ const TitledProduct = ({ title }) => {
 
   const fetchProduct = async () => {
     if (title === 'All Products') {
-      await axios.get(`/api/all-products?keyword=`).then((res) => {
+      await axios.get(`http://3.134.105.196:8000/api/all-products?keyword=`).then((res) => {
         setProducts(res.data.products)
       })
     } else {
-      await axios.get(`/api/all-products?keyword=${title}`).then((res) => {
+      await axios.get(`http://3.134.105.196:8000/api/all-products?keyword=${title}`).then((res) => {
         setProducts(res.data.products)
       })
     }

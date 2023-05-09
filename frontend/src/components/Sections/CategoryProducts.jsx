@@ -15,9 +15,11 @@ export default function CategoryProducts({ keyword }) {
   }, [keyword])
 
   const fetchProduct = async () => {
-    await axios.get(`/api/all-products?keyword=${keyword}`).then((res) => {
-      setProducts(res.data.products)
-    })
+    await axios
+      .get(`http://3.134.105.196:8000/api/all-products?keyword=${keyword}`)
+      .then((res) => {
+        setProducts(res.data.products)
+      })
   }
 
   return (

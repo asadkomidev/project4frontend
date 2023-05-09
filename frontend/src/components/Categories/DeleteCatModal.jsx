@@ -9,7 +9,9 @@ const DeleteCatModal = ({ open, setOpen, id, name }) => {
 
   const handleDelete = async () => {
     try {
-      await axios.delete('/api/delete-subcategory/' + id)
+      await axios.delete(
+        'http://3.134.105.196:8000/api/delete-subcategory/' + id
+      )
 
       window.location.reload(false)
       setOpen(false)

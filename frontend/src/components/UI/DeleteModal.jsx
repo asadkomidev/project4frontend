@@ -10,9 +10,11 @@ const DeleteModal = ({ open, setOpen, id, name, cid }) => {
   const handleDelete = async () => {
     try {
       if (cid) {
-        await axios.delete('/api/delete-category/' + cid)
+        await axios.delete(
+          'http://3.134.105.196:8000/api/delete-category/' + cid
+        )
       } else {
-        await axios.delete('/api/delete-product/' + id)
+        await axios.delete('http://3.134.105.196:8000/api/delete-product/' + id)
       }
       window.location.reload(false)
       setOpen(false)

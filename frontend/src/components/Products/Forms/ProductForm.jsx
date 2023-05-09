@@ -83,14 +83,18 @@ const ProductForm = ({ title, product }) => {
   }, [])
 
   const fetchSubCategories = async () => {
-    await axios.get('/api/all-subcategories?cat=').then((res) => {
-      setSubCategories(res.data.subCategoryList)
-    })
+    await axios
+      .get('http://3.134.105.196:8000/api/all-subcategories?cat=')
+      .then((res) => {
+        setSubCategories(res.data.subCategoryList)
+      })
   }
   const fetchCategories = async () => {
-    await axios.get('/api/all-categories').then((res) => {
-      setCats(res.data.categoryList)
-    })
+    await axios
+      .get('http://3.134.105.196:8000/api/all-categories')
+      .then((res) => {
+        setCats(res.data.categoryList)
+      })
   }
 
   const handleSubmit = async (e) => {

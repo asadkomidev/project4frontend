@@ -15,9 +15,11 @@ export default function ProductList({ id, productsList }) {
 
   const fetchProduct = async () => {
     setLoading(true)
-    await axios.get(`/api/all-products?cat=${id}`).then((res) => {
-      setProducts(res.data.products)
-    })
+    await axios
+      .get(`http://3.134.105.196:8000/api/all-products?cat=${id}`)
+      .then((res) => {
+        setProducts(res.data.products)
+      })
     setTimeout(() => {
       setLoading(false)
     }, 800)

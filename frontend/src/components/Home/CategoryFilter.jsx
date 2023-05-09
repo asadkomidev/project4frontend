@@ -22,9 +22,11 @@ export default function CategoryFilter({ cid }) {
 
   const fetchCategories = async () => {
     setLoading(true)
-    await axios.get(`/api/all-subcategories?cat=${cid}`).then((res) => {
-      setCategories(res.data.subCategoryList)
-    })
+    await axios
+      .get(`http://3.134.105.196:8000/api/all-subcategories?cat=${cid}`)
+      .then((res) => {
+        setCategories(res.data.subCategoryList)
+      })
     setTimeout(() => {
       setLoading(false)
     }, 800)

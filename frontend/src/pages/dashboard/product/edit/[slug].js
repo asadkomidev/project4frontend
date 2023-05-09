@@ -15,7 +15,7 @@ const EditProduct = ({ product }) => {
 export default EditProduct
 
 export async function getStaticPaths() {
-  const res = await fetch(`${process.env.API}/all-products?cat=`)
+  const res = await fetch(`http://3.134.105.196:8000/api/all-products?cat=`)
   const { products } = await res.json()
 
   const paths = products.map((product) => ({
@@ -29,7 +29,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params: { slug } }) {
-  const res = await fetch(`${process.env.API}/get-product/${slug}`)
+  const res = await fetch(`http://3.134.105.196:8000/api/get-product/${slug}`)
   const product = await res.json()
 
   return {

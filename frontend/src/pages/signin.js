@@ -37,7 +37,7 @@ export default function Signin() {
     try {
       dispatchLoader(SetLoader(true))
       setLoading(true)
-      const { data } = await axios.post(`/api/login`, {
+      const { data } = await axios.post(`http://3.134.105.196:8000/api/login`, {
         email,
         password,
       })

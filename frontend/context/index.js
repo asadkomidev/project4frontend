@@ -51,7 +51,7 @@ const ContextProvider = ({ children }) => {
       if (res.status === 401 && res.config && !res.config.__isRetryRequest) {
         return new Promise((resolve, reject) => {
           axios
-            .get('/api/logout')
+            .get('http://3.134.105.196:8000/api/logout')
             .then((data) => {
               console.log('/401 error > logout')
               dispatch({ type: 'LOGOUT' })
@@ -70,7 +70,9 @@ const ContextProvider = ({ children }) => {
 
   useEffect(() => {
     const getCsrfToken = async () => {
-      const { data } = await axios.get('/api/csrf-token')
+      const { data } = await axios.get(
+        'http://3.134.105.196:8000/api/csrf-token'
+      )
       // console.log("CSRF", data);
       axios.defaults.headers['X-CSRF-Token'] = data.getCsrfToken
     }

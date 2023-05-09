@@ -25,9 +25,11 @@ const CategoryForm = ({ title, product }) => {
   }, [])
 
   const fetchCategories = async () => {
-    await axios.get('/api/all-categories').then((res) => {
-      setCategories(res.data.categoryList)
-    })
+    await axios
+      .get('http://3.134.105.196:8000/api/all-categories')
+      .then((res) => {
+        setCategories(res.data.categoryList)
+      })
   }
 
   const handleSubmit = async (e) => {
