@@ -1,8 +1,5 @@
 /* eslint-disable @next/next/no-img-element */
-
 import { Tab } from '@headlessui/react'
-
-import Layout from '@/components/layout/Layout.jsx'
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')

@@ -1,21 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
 /* eslint-disable @next/next/no-html-link-for-pages */
-import React, { useContext, useEffect } from 'react'
-import { useState } from 'react'
-
+import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import { useRouter } from 'next/router'
 
-import { Context } from '../../../../context/index.js'
-import { FiUpload } from 'react-icons/fi'
-
-const SubCategoryForm = ({ title, product }) => {
+const SubCategoryForm = ({ product }) => {
   const [name, setName] = useState(product?.name || '')
   const [category, setCategory] = useState(product?.category || '')
   const [categories, setCategories] = useState([])
-
-  const { state, dispatch } = useContext(Context)
-  const { user } = state
 
   const router = useRouter()
 
@@ -30,15 +22,13 @@ const SubCategoryForm = ({ title, product }) => {
         setCategories(res.data.categoryList)
       })
   }
-  // console.log('Cat ID', categories[7]?.category?.name)
+
   const handleSubmit = async (e) => {
     e.preventDefault()
 
     try {
       if (product?._id) {
         const id = product._id
-
-        // await axios.put('/api/edit-product/' + id, { ...data })
       } else {
         await axios.post(`${process.env.NEXT_PUBLIC_API}/api/add-subcategory`, {
           name,
@@ -47,14 +37,11 @@ const SubCategoryForm = ({ title, product }) => {
 
         setName('')
         setCategory('')
-        // console.log(data)
       }
 
       router.push('/dashboard')
     } catch (err) {
-      // setError(err)
       console.log(err)
-      // setLoading(false)
     }
   }
 
@@ -88,8 +75,6 @@ const SubCategoryForm = ({ title, product }) => {
                           onChange={(e) => setName(e.target.value)}
                           value={name}
                           type="name"
-                          // name="name"
-                          // id="name"
                           className="block w-full rounded-md border-0 px-2 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6"
                           placeholder="Mac Pro - M1"
                         />

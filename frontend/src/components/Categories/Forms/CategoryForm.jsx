@@ -7,7 +7,6 @@ import axios from 'axios'
 import { useRouter } from 'next/router'
 
 import { Context } from '../../../../context/index.js'
-
 import SubCategoryForm from '@/components/SubCategory/Forms/SubCategoryForm.jsx'
 
 const CategoryForm = ({ title, product }) => {

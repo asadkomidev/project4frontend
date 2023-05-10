@@ -1,4 +1,4 @@
-import { Fragment, useState } from 'react'
+import { Fragment } from 'react'
 import { Listbox, Transition } from '@headlessui/react'
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid'
 
@@ -6,8 +6,6 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 const SubSelect = ({ sub, setSub, data }) => {
-  //   const [sub, setSelected] = useState(data[3])
-
   return (
     <Listbox value={sub} onChange={setSub}>
       {({ open }) => (

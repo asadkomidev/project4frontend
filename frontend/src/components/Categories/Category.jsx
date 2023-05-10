@@ -1,7 +1,6 @@
 import React from 'react'
 import CategoryTable from './CategoryTable.jsx'
 import CategoryForm from './Forms/CategoryForm.jsx'
-import Layout from '../layout/Layout.jsx'
 
 const Category = ({ categories, subcategories }) => {
   return (

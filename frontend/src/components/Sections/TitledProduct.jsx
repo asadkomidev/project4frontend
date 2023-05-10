@@ -1,12 +1,8 @@
-import React from 'react'
 /* eslint-disable @next/next/no-img-element */
-
-import { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import axios from 'axios'
-import Loader from '../UI/Loader.jsx'
 
 const TitledProduct = ({ title }) => {
-  const [loading, setLoading] = useState(false)
   const [products, setProducts] = useState([])
 
   useEffect(() => {
@@ -31,7 +27,6 @@ const TitledProduct = ({ title }) => {
 
   return (
     <>
-      {loading && <Loader />}
       <div className="bg-white">
         <div className="mx-auto max-w-2xl px-4 py-2  sm:py-1 lg:max-w-7xl ">
           <div className=" grid grid-cols-1 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-3 xl:gap-x-8">

@@ -1,13 +1,9 @@
-import DashboardHeader from '@/components/dashboard/DashboardHeader.jsx'
-import Layout from '@/components/layout/Layout.jsx'
-import React from 'react'
-
-import { Fragment, useEffect } from 'react'
-
+import React, { Fragment} from 'react'
 import { Tab } from '@headlessui/react'
+
+import DashboardHeader from '@/components/dashboard/DashboardHeader.jsx'
 import Products from '@/components/Products/Products.jsx'
-import UserRoute from '../../../routes/UserRoute.js'
-import Category from '@/components/Categories/Category.jsx'
+
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')

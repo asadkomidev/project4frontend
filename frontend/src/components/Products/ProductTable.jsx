@@ -1,6 +1,5 @@
 import { useState } from 'react'
 import { FaTrash, FaEdit } from 'react-icons/fa'
-import DeleteModal from '../UI/DeleteModal.jsx'
 
 const ProductTable = ({ products }) => {
   const [open, setOpen] = useState(false)

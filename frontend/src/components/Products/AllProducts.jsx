@@ -1,5 +1,4 @@
 /* eslint-disable @next/next/no-img-element */
-
 import { useEffect, useState } from 'react'
 
 import Loader from '../UI/Loader.jsx'

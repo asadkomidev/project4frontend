@@ -1,16 +1,13 @@
 import { useReducer, createContext, useEffect } from 'react'
 import axios from 'axios'
-import { useRouter, userRouter } from 'next/router'
+import { useRouter } from 'next/router'
 
-// initial state
 const intialState = {
   user: null,
 }
 
-// create context
 const Context = createContext()
 
-// root reducer
 const rootReducer = (state, action) => {
   switch (action.type) {
     case 'LOGIN':

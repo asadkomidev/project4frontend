@@ -1,5 +1,4 @@
 import { Fragment, useState } from 'react'
-import axios from 'axios'
 import { Dialog, Disclosure, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
 import { PlusIcon } from '@heroicons/react/20/solid'

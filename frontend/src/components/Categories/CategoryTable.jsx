@@ -1,9 +1,8 @@
 import { useState } from 'react'
 import { FaTrash, FaEdit } from 'react-icons/fa'
-import DeleteModal from '../UI/DeleteModal.jsx'
 import DeleteCatModal from './DeleteCatModal.jsx'
 
-const CategoryTable = ({ categories, subcategories }) => {
+const CategoryTable = ({ subcategories }) => {
   const [open, setOpen] = useState(false)
   const [id, setId] = useState('')
 
@@ -11,7 +10,6 @@ const CategoryTable = ({ categories, subcategories }) => {
 
   const openModal = (pid, pname) => {
     setId(pid)
-    // setCid(cid)
     setName(pname)
     setOpen(true)
   }

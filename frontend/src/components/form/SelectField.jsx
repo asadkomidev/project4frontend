@@ -1,4 +1,4 @@
-import { Fragment, useState } from 'react'
+import { Fragment } from 'react'
 import { Listbox, Transition } from '@headlessui/react'
 import { CheckIcon, ChevronUpDownIcon } from '@heroicons/react/20/solid'
 
@@ -6,15 +6,13 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 const SelectField = ({ selected, setSelected, category }) => {
-  //   const [selected, setSelected] = useState(category[3])
+
 
   return (
     <Listbox value={selected} onChange={setSelected}>
       {({ open }) => (
         <>
-          {/* <Listbox.Label className="block text-sm font-medium leading-6 text-gray-900">
-            Assigned to
-          </Listbox.Label> */}
+          
           <div className="relative">
             <div className="block pb-2 text-sm font-medium leading-6 text-gray-900">
               Category

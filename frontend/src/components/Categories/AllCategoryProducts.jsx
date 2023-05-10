@@ -1,9 +1,7 @@
 /* eslint-disable @next/next/no-img-element */
-
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 import Loader from '../UI/Loader.jsx'
-// import { Loader } from '@/components/UI/Loader.jsx'
 
 export default function AllCategoryProducts({}) {
   const [loading, setLoading] = useState(false)

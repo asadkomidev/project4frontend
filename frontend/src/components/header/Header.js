@@ -1,7 +1,7 @@
 /* eslint-disable @next/next/no-html-link-for-pages */
 /* eslint-disable @next/next/no-img-element */
 
-import React, { useState, useContext, Fragment, useEffect } from 'react'
+import React, { useState, useContext, Fragment } from 'react'
 import { useRouter } from 'next/router'
 import axios from 'axios'
 import { useDispatch } from 'react-redux'
@@ -10,7 +10,6 @@ import Link from 'next/link.js'
 import { Disclosure, Menu, Transition } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { Context } from '../../../context/index.js'
-import { SetLoader } from '../../../redux/loaderSlice.js'
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')

@@ -1,15 +1,10 @@
-import Layout from '@/components/layout/Layout.jsx'
+import { useSelector } from 'react-redux'
 
 import Loader from '@/components/UI/Loader.jsx'
-
-import { useSelector } from 'react-redux'
 import Tabs from '@/components/UI/Tabs.jsx'
 
 export default function Home({ products, categories, subcategories }) {
-  // const [loading, setLoading] = useState(false)
   const { loading } = useSelector((state) => state.loaders)
-
-  console.log(products)
 
   return (
     <>

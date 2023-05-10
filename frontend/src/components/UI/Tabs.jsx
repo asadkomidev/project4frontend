@@ -1,5 +1,4 @@
 import { Fragment } from 'react'
-import { StarIcon } from '@heroicons/react/20/solid'
 import { Tab } from '@headlessui/react'
 
 import CategoryLayout from '../Sections/AllCategoryLayout.jsx'
@@ -8,8 +7,7 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-const Tabs = ({ products, categories, subcategories }) => {
-  // console.log('sub cat name: ', subcategories[0]?.category.name)
+const Tabs = ({ categories }) => {
   return (
     <div className="mx-auto mt-16  w-full max-w-2xl lg:mt-0 lg:max-w-7xl ">
       <Tab.Group as="div">
