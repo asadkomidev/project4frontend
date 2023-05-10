@@ -1,7 +1,6 @@
 /* eslint-disable @next/next/no-img-element */
 
-import { useState } from 'react'
-import { Disclosure, RadioGroup, Tab } from '@headlessui/react'
+import { Tab } from '@headlessui/react'
 
 import Layout from '@/components/layout/Layout.jsx'
 
@@ -10,6 +9,7 @@ function classNames(...classes) {
 }
 
 export default function Product({ product }) {
+  console.log('Product: ', product)
   return (
     <Layout>
       <div className="bg-white">
@@ -69,7 +69,7 @@ export default function Product({ product }) {
               </h1>
 
               <div className="mt-3">
-                <h2 className="sr-only">product.product information</h2>
+                <h2 className="sr-only">Product information</h2>
                 <p className="text-3xl tracking-tight text-gray-900">
                   ${product.product.price}
                 </p>

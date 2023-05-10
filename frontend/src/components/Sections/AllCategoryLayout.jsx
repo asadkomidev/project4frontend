@@ -21,11 +21,8 @@ export default function CategoryLayout({
 
   const [keyword, setKeyword] = useState('')
 
-  const [loading, setLoading] = useState(false)
-
   return (
     <>
-      {loading && <Loader />}
       <div className="bg-white">
         <div>
           {/* Mobile filter dialog */}

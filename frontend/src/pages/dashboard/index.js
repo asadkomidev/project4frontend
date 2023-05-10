@@ -34,7 +34,7 @@ const Dashboard = ({ products, categories, subcategories }) => {
               >
                 Products
               </Tab>
-              <Tab
+              {/* <Tab
                 className={({ selected }) =>
                   classNames(
                     selected
@@ -45,7 +45,7 @@ const Dashboard = ({ products, categories, subcategories }) => {
                 }
               >
                 Categories
-              </Tab>
+              </Tab> */}
             </Tab.List>
           </div>
           <Tab.Panels as={Fragment}>
@@ -58,14 +58,14 @@ const Dashboard = ({ products, categories, subcategories }) => {
               />
             </Tab.Panel>
 
-            <Tab.Panel className="pt-10">
+            {/* <Tab.Panel className="pt-10">
               <h3 className="sr-only">Frequently Asked Questions</h3>
 
               <Category
                 categories={categories.categoryList}
                 subcategories={subcategories.subCategoryList}
               />
-            </Tab.Panel>
+            </Tab.Panel> */}
           </Tab.Panels>
         </Tab.Group>
       </div>

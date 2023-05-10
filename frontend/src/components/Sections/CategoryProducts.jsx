@@ -9,6 +9,9 @@ export default function CategoryProducts({ keyword }) {
   const [loading, setLoading] = useState(false)
   const [products, setProducts] = useState([])
 
+  console.log('Keyword: ', keyword)
+  console.log('Products: ', products)
+
   useEffect(() => {
     // fetchTitle()
     fetchProduct()

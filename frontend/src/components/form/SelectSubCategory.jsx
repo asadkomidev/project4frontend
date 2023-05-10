@@ -1,12 +1,6 @@
 import React from 'react'
 
-const SelectSubCategory = ({
-  cat,
-  setSubCategory,
-  subcategory,
-  data,
-  cname,
-}) => {
+const SelectSubCategory = ({ setSubCategory, subcategory, data }) => {
   return (
     <>
       <label

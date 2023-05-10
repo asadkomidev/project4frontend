@@ -63,7 +63,7 @@ const Tabs = ({ products, categories, subcategories }) => {
             <h3 className="sr-only">For Sale</h3>
 
             <CategoryLayout
-              item1={'Cars + Trucks'}
+              item1={'Cars'}
               item2={'Motorcycles'}
               item3={'Boats'}
               item4={'Books'}
