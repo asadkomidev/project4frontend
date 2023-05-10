@@ -23,9 +23,7 @@ export default function CategoryFilter({ cid }) {
   const fetchCategories = async () => {
     setLoading(true)
     await axios
-      .get(
-        `https://project4backend.herokuapp.com/api/all-subcategories?cat=${cid}`
-      )
+      .get(`${process.env.NEXT_PUBLIC_API}/api/all-subcategories?cat=${cid}`)
       .then((res) => {
         setCategories(res.data.subCategoryList)
       })

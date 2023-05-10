@@ -16,15 +16,13 @@ const TitledProduct = ({ title }) => {
   const fetchProduct = async () => {
     if (title === 'All Products') {
       await axios
-        .get(`https://project4backend.herokuapp.com/api/all-products?keyword=`)
+        .get(`${process.env.NEXT_PUBLIC_API}/api/all-products?keyword=`)
         .then((res) => {
           setProducts(res.data.products)
         })
     } else {
       await axios
-        .get(
-          `https://project4backend.herokuapp.com/api/all-products?keyword=${title}`
-        )
+        .get(`${process.env.NEXT_PUBLIC_API}/api/all-products?keyword=${title}`)
         .then((res) => {
           setProducts(res.data.products)
         })

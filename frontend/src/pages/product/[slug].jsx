@@ -163,9 +163,7 @@ export default function Product({ product }) {
 }
 
 export async function getStaticPaths() {
-  const res = await fetch(
-    `https://project4backend.herokuapp.com/api/all-products`
-  )
+  const res = await fetch(`${process.env.NEXT_PUBLIC_API}/api/all-products`)
   const { products } = await res.json()
 
   const paths = products.map((product) => ({
@@ -180,7 +178,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params: { slug } }) {
   const res = await fetch(
-    `https://project4backend.herokuapp.com/api/get-product/${slug}`
+    `${process.env.NEXT_PUBLIC_API}/api/get-product/${slug}`
   )
   const product = await res.json()
 

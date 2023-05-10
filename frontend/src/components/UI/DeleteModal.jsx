@@ -11,11 +11,11 @@ const DeleteModal = ({ open, setOpen, id, name, cid }) => {
     try {
       if (cid) {
         await axios.delete(
-          'https://project4backend.herokuapp.com/api/delete-category/' + cid
+          `${process.env.NEXT_PUBLIC_API}/api/delete-category/` + cid
         )
       } else {
         await axios.delete(
-          'https://project4backend.herokuapp.com/api/delete-product/' + id
+          `${process.env.NEXT_PUBLIC_API}/api/delete-product/` + id
         )
       }
       window.location.reload(false)

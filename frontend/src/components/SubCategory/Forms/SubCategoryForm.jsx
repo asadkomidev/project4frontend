@@ -25,7 +25,7 @@ const SubCategoryForm = ({ title, product }) => {
 
   const fetchCategories = async () => {
     await axios
-      .get('https://project4backend.herokuapp.com/api/all-categories')
+      .get(`${process.env.NEXT_PUBLIC_API}/api/all-categories`)
       .then((res) => {
         setCategories(res.data.categoryList)
       })
@@ -40,13 +40,10 @@ const SubCategoryForm = ({ title, product }) => {
 
         // await axios.put('/api/edit-product/' + id, { ...data })
       } else {
-        await axios.post(
-          `https://project4backend.herokuapp.com/api/add-subcategory`,
-          {
-            name,
-            category,
-          }
-        )
+        await axios.post(`${process.env.NEXT_PUBLIC_API}/api/add-subcategory`, {
+          name,
+          category,
+        })
 
         setName('')
         setCategory('')

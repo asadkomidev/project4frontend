@@ -16,7 +16,7 @@ export default function ProductList({ id, productsList }) {
   const fetchProduct = async () => {
     setLoading(true)
     await axios
-      .get(`https://project4backend.herokuapp.com/api/all-products?cat=${id}`)
+      .get(`${process.env.NEXT_PUBLIC_API}/api/all-products?cat=${id}`)
       .then((res) => {
         setProducts(res.data.products)
       })

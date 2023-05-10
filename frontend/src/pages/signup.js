@@ -34,7 +34,7 @@ export default function Signup() {
     try {
       setLoading(true)
       const { data } = await axios.post(
-        `https://project4backend.herokuapp.com/api/register`,
+        `${process.env.NEXT_PUBLIC_API}/api/register`,
         {
           name,
           email,

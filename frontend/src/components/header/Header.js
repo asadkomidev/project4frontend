@@ -30,7 +30,7 @@ const Header = () => {
     dispatch({ type: 'LOGOUT' })
     window.localStorage.removeItem('user')
     const { data } = await axios.get(
-      `https://project4backend.herokuapp.com/api/logout`
+      `${process.env.NEXT_PUBLIC_API}/api/logout`
     )
     // dispatchLoader(SetLoader(false))
     router.push('/')

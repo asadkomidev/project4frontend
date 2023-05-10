@@ -24,11 +24,9 @@ const rootReducer = (state, action) => {
   }
 }
 
-// context provider
 const ContextProvider = ({ children }) => {
   const [state, dispatch] = useReducer(rootReducer, intialState)
 
-  // router
   const router = useRouter()
 
   useEffect(() => {
@@ -40,18 +38,14 @@ const ContextProvider = ({ children }) => {
 
   axios.interceptors.response.use(
     function (response) {
-      // any status code that lie within the range of 2XX cause this function
-      // to trigger
       return response
     },
     function (error) {
-      // any status codes that falls outside the range of 2xx cause this function
-      // to trigger
-      let res = error.response //once the cookie expires this function runs and if these conditions true it means it has expired and we have to logout
+      let res = error.response
       if (res.status === 401 && res.config && !res.config.__isRetryRequest) {
         return new Promise((resolve, reject) => {
           axios
-            .get('https://project4backend.herokuapp.com/api/logout')
+            .get(`${process.env.NEXT_PUBLIC_API}/api/logout`)
             .then((data) => {
               console.log('/401 error > logout')
               dispatch({ type: 'LOGOUT' })
@@ -71,9 +65,9 @@ const ContextProvider = ({ children }) => {
   useEffect(() => {
     const getCsrfToken = async () => {
       const { data } = await axios.get(
-        'https://project4backend.herokuapp.com/api/csrf-token'
+        `${process.env.NEXT_PUBLIC_API}/api/csrf-token`
       )
-      // console.log("CSRF", data);
+
       axios.defaults.headers['X-CSRF-Token'] = data.getCsrfToken
     }
     getCsrfToken()

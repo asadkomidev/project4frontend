@@ -20,7 +20,7 @@ const UserRoute = ({ children, showNav = true }) => {
   const fetchUser = async () => {
     try {
       const { data } = await axios.get(
-        'https://project4backend.herokuapp.com/api/current-user'
+        '${process.env.NEXT_PUBLIC_API}/api/current-user'
       )
       console.log('', data)
       if (data.ok) setOk(true)
@@ -40,17 +40,6 @@ const UserRoute = ({ children, showNav = true }) => {
           </div>
         </div>
       )}
-      {/* {ok ? (
-        <div>
-          <div>
-            <div>{children}</div>
-          </div>
-        </div>
-      ) : (
-        <div className="">
-          <p>Loading</p>
-        </div>
-      )} */}
     </>
   )
 }

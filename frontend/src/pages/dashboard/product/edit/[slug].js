@@ -16,7 +16,7 @@ export default EditProduct
 
 export async function getStaticPaths() {
   const res = await fetch(
-    `https://project4backend.herokuapp.com/api/all-products?cat=`
+    `${process.env.NEXT_PUBLIC_API}/api/all-products?cat=`
   )
   const { products } = await res.json()
 
@@ -32,7 +32,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params: { slug } }) {
   const res = await fetch(
-    `https://project4backend.herokuapp.com/api/get-product/${slug}`
+    `${process.env.NEXT_PUBLIC_API}/api/get-product/${slug}`
   )
   const product = await res.json()
 
