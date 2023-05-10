@@ -12,7 +12,7 @@ export default function Home({ products, categories, subcategories }) {
   return (
     <>
       {loading && <Loader />}
-      <Layout title="CL | Home">
+      <>
         <div>
           <Tabs
             products={products.products}
@@ -20,7 +20,7 @@ export default function Home({ products, categories, subcategories }) {
             subcategories={subcategories.subCategoryList}
           />
         </div>
-      </Layout>
+      </>
     </>
   )
 }

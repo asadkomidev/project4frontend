@@ -23,7 +23,7 @@ export default function CategoryLayout({
 
   return (
     <>
-      <div className="bg-white">
+      <div className=" bg-white">
         <div>
           {/* Mobile filter dialog */}
           <Transition.Root show={mobileFiltersOpen} as={Fragment}>
@@ -79,31 +79,35 @@ export default function CategoryLayout({
                                     <label
                                       htmlFor=""
                                       className="ml-3 cursor-pointer text-lg text-gray-600"
-                                      // onClick={setKeyword(item1)}
+                                      onClick={() => setKeyword(item1)}
                                     >
                                       {item1}
                                     </label>
                                     <label
                                       htmlFor=""
                                       className="ml-3 cursor-pointer text-lg text-gray-600"
+                                      onClick={() => setKeyword(item2)}
                                     >
                                       {item2}
                                     </label>
                                     <label
                                       htmlFor=""
                                       className="ml-3 cursor-pointer text-lg text-gray-600"
+                                      onClick={() => setKeyword(item3)}
                                     >
                                       {item3}
                                     </label>
                                     <label
                                       htmlFor=""
                                       className="ml-3 cursor-pointer text-lg text-gray-600"
+                                      onClick={() => setKeyword(item4)}
                                     >
                                       {item4}
                                     </label>
                                     <label
                                       htmlFor=""
                                       className="ml-3 cursor-pointer text-lg text-gray-600"
+                                      onClick={() => setKeyword(item5)}
                                     >
                                       {item5}
                                     </label>

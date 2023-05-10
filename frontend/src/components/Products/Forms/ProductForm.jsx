@@ -73,9 +73,6 @@ const ProductForm = ({ title, product }) => {
   const { state, dispatch } = useContext(Context)
   const { user } = state
 
-  console.log('Cat: ', cat)
-  console.log('Sub Cat: ', subcategory)
-
   const router = useRouter()
 
   useEffect(() => {

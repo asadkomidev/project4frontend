@@ -62,7 +62,7 @@ export default function Signin() {
 
   return (
     <>
-      <div className="flex min-h-full flex-1 flex-col justify-center pt-16 sm:px-6 lg:px-8 lg:pt-60">
+      <div className="flex min-h-screen flex-1 flex-col justify-center  sm:px-6 lg:px-8 ">
         <div className="mt-10 p-4 sm:mx-auto sm:w-full sm:max-w-[480px]">
           <div className="bg-white px-6 py-12 shadow sm:rounded-lg ">
             {error && <Alert error={error} />}

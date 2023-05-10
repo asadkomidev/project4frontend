@@ -4,7 +4,7 @@ import { AiOutlinePlus } from 'react-icons/ai'
 const DashboardHeader = () => {
   return (
     <>
-      <div className="flex justify-between py-8 lg:py-16">
+      <div className="flex justify-between pt-16 lg:py-16">
         <div className="min-w-0 flex-1">
           <h2 className="text-2xl font-bold leading-7 text-gray-900 sm:truncate sm:text-3xl sm:tracking-tight">
             Dashboard

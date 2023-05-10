@@ -11,7 +11,7 @@ function classNames(...classes) {
 const Tabs = ({ products, categories, subcategories }) => {
   // console.log('sub cat name: ', subcategories[0]?.category.name)
   return (
-    <div className="mx-auto mt-16 w-full max-w-2xl  lg:mt-0 lg:max-w-7xl ">
+    <div className="mx-auto mt-16  w-full max-w-2xl lg:mt-0 lg:max-w-7xl ">
       <Tab.Group as="div">
         <div className="overflow-x-auto border-b border-gray-200">
           <Tab.List className="-mb-px flex space-x-8">
@@ -49,7 +49,7 @@ const Tabs = ({ products, categories, subcategories }) => {
           <Tab.Panel className="pt-10 ">
             <h3 className="sr-only">All</h3>
             <CategoryLayout
-              item1={'All'}
+              item1={''}
               item2={''}
               item3={''}
               item4={''}

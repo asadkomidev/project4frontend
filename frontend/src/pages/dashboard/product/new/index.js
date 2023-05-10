@@ -6,9 +6,9 @@ import ProductForm from '@/components/Products/Forms/ProductForm.jsx'
 
 const NewProduct = () => {
   return (
-    <Layout>
+    <>
       <ProductForm title={'New Product'} />
-    </Layout>
+    </>
   )
 }
 
