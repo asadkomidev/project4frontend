@@ -15,10 +15,7 @@ export default function Product() {
   const { slug } = router.query
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      fetchProduct()
-    }, 1000)
-    return () => clearTimeout(timer)
+    fetchProduct()
   }, [])
   const fetchProduct = async () => {
     await axios
