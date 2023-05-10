@@ -1,10 +1,8 @@
-import { Fragment, useEffect, useState } from 'react'
+import { Fragment, useState } from 'react'
 import axios from 'axios'
 import { Dialog, Disclosure, Transition } from '@headlessui/react'
 import { XMarkIcon } from '@heroicons/react/24/outline'
-import { ChevronDownIcon, PlusIcon } from '@heroicons/react/20/solid'
-
-import Loader from '../UI/Loader.jsx'
+import { PlusIcon } from '@heroicons/react/20/solid'
 
 import CategoryProducts from './CategoryProducts.jsx'
 import TitledProduct from './TitledProduct.jsx'
@@ -75,38 +73,38 @@ export default function CategoryLayout({
                             <div>
                               <div className={'pt-2'}>
                                 <fieldset>
-                                  <div className=" flex flex-col space-y-3">
+                                  <div className="flex flex-col space-y-3">
                                     <label
                                       htmlFor=""
-                                      className="ml-3 cursor-pointer text-lg text-gray-600"
+                                      className="ml-3 cursor-pointer text-base font-medium text-gray-600"
                                       onClick={() => setKeyword(item1)}
                                     >
                                       {item1}
                                     </label>
                                     <label
                                       htmlFor=""
-                                      className="ml-3 cursor-pointer text-lg text-gray-600"
+                                      className="ml-3 cursor-pointer text-base font-medium text-gray-600"
                                       onClick={() => setKeyword(item2)}
                                     >
                                       {item2}
                                     </label>
                                     <label
                                       htmlFor=""
-                                      className="ml-3 cursor-pointer text-lg text-gray-600"
+                                      className="ml-3 cursor-pointer text-base font-medium text-gray-600"
                                       onClick={() => setKeyword(item3)}
                                     >
                                       {item3}
                                     </label>
                                     <label
                                       htmlFor=""
-                                      className="ml-3 cursor-pointer text-lg text-gray-600"
+                                      className="ml-3 cursor-pointer text-base font-medium text-gray-600"
                                       onClick={() => setKeyword(item4)}
                                     >
                                       {item4}
                                     </label>
                                     <label
                                       htmlFor=""
-                                      className="ml-3 cursor-pointer text-lg text-gray-600"
+                                      className="ml-3 cursor-pointer text-base font-medium text-gray-600"
                                       onClick={() => setKeyword(item5)}
                                     >
                                       {item5}
@@ -154,38 +152,38 @@ export default function CategoryLayout({
                   <form className="space-y-2 divide-y divide-gray-200 ">
                     <div className={'pt-2'}>
                       <fieldset>
-                        <div className=" flex flex-col space-y-3">
+                        <div className=" flex flex-col space-y-1">
                           <label
                             htmlFor=""
-                            className="ml-3 cursor-pointer text-lg text-gray-600"
+                            className="ml-3 cursor-pointer text-base font-medium text-gray-600"
                             onClick={() => setKeyword(item1)}
                           >
                             {item1}
                           </label>
                           <label
                             htmlFor=""
-                            className="ml-3 cursor-pointer text-lg text-gray-600"
+                            className="ml-3 cursor-pointer text-base font-medium text-gray-600"
                             onClick={() => setKeyword(item2)}
                           >
                             {item2}
                           </label>
                           <label
                             htmlFor=""
-                            className="ml-3 cursor-pointer text-lg text-gray-600"
+                            className="ml-3 cursor-pointer text-base font-medium text-gray-600"
                             onClick={() => setKeyword(item3)}
                           >
                             {item3}
                           </label>
                           <label
                             htmlFor=""
-                            className="ml-3 cursor-pointer text-lg text-gray-600"
+                            className="ml-3 cursor-pointer text-base font-medium text-gray-600"
                             onClick={() => setKeyword(item4)}
                           >
                             {item4}
                           </label>
                           <label
                             htmlFor=""
-                            className="ml-3 cursor-pointer text-lg text-gray-600"
+                            className="ml-3 cursor-pointer text-base font-medium text-gray-600"
                             onClick={() => setKeyword(item5)}
                           >
                             {item5}

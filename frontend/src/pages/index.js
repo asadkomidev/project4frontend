@@ -9,6 +9,8 @@ export default function Home({ products, categories, subcategories }) {
   // const [loading, setLoading] = useState(false)
   const { loading } = useSelector((state) => state.loaders)
 
+  console.log(products)
+
   return (
     <>
       {loading && <Loader />}
@@ -30,9 +32,7 @@ export async function getServerSideProps() {
     `${process.env.NEXT_PUBLIC_API}/api/all-products?cat=`
   )
   const products = await res.json()
-  const cat = await fetch(
-    `${process.env.NEXT_PUBLIC_API}/api/all-categories`
-  )
+  const cat = await fetch(`${process.env.NEXT_PUBLIC_API}/api/all-categories`)
   const categories = await cat.json()
   const subcat = await fetch(
     `${process.env.NEXT_PUBLIC_API}/api/all-subcategories`
