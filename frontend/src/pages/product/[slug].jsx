@@ -1,11 +1,30 @@
 /* eslint-disable @next/next/no-img-element */
 import { Tab } from '@headlessui/react'
+import axios from 'axios'
+import { useRouter } from 'next/router.js'
+import { useEffect, useState } from 'react'
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Product({ product }) {
+export default function Product() {
+  const [product, setProduct] = useState({})
+  const router = useRouter()
+
+  const { slug } = router.query
+
+  useEffect(() => {
+    fetchProduct()
+  }, [])
+  const fetchProduct = async () => {
+    await axios
+      .get(`${process.env.NEXT_PUBLIC_API}/api/get-product/${slug}`)
+      .then((res) => {
+        setProduct(res.data.product)
+      })
+  }
+
   return (
     <>
       <div className="bg-white">
@@ -16,7 +35,7 @@ export default function Product({ product }) {
               {/* Image selector */}
               <div className="mx-auto mt-6 hidden w-full max-w-2xl sm:block lg:max-w-none">
                 <Tab.List className="grid grid-cols-4 gap-6">
-                  {product.product.images.map((image, i) => (
+                  {product?.images?.map((image, i) => (
                     <Tab
                       key={i}
                       className="relative flex h-24 cursor-pointer items-center justify-center rounded-md bg-white text-sm font-medium uppercase text-gray-900 hover:bg-gray-50 focus:outline-none focus:ring focus:ring-opacity-50 focus:ring-offset-4"
@@ -46,7 +65,7 @@ export default function Product({ product }) {
               </div>
 
               <Tab.Panels className="aspect-h-1 aspect-w-1 w-full">
-                {product.product.images.map((image, i) => (
+                {product?.images?.map((image, i) => (
                   <Tab.Panel key={i}>
                     <img
                       src={image}
@@ -61,13 +80,13 @@ export default function Product({ product }) {
             {/* Product info */}
             <div className="mt-10 w-full sm:mt-16 sm:px-0 lg:mt-0 lg:w-80">
               <h1 className="text-2xl font-bold tracking-tight text-gray-900">
-                {product.product.name}
+                {product?.name}
               </h1>
 
               <div className="mt-3">
                 <h2 className="sr-only">Product information</h2>
                 <p className="text-lg tracking-tight text-gray-900">
-                  ${product.product.price}
+                  ${product?.price}
                 </p>
               </div>
 
@@ -77,7 +96,7 @@ export default function Product({ product }) {
                 <div
                   className="space-y-6 text-base text-gray-700"
                   dangerouslySetInnerHTML={{
-                    __html: product.product.description,
+                    __html: product?.description,
                   }}
                 />
               </div>
@@ -86,56 +105,49 @@ export default function Product({ product }) {
               </div>
               <div className="mt-3 flex justify-between ">
                 <div className="flex w-80 flex-col gap-2 text-zinc-500">
-                  {product.product.model && (
+                  {product?.model && (
                     <span>
                       {' '}
-                      <span className="font-bold">Model:</span>{' '}
-                      {product.product.model}{' '}
+                      <span className="font-bold">Model:</span> {product?.model}{' '}
                     </span>
                   )}
-                  {product.product.make && (
+                  {product?.make && (
                     <span>
-                      <span className="font-bold">Make:</span>{' '}
-                      {product.product.make}{' '}
+                      <span className="font-bold">Make:</span> {product?.make}{' '}
                     </span>
                   )}
-                  {product.product.type && (
+                  {product?.type && (
                     <span>
-                      <span className="font-bold">Type:</span>{' '}
-                      {product.product.type}{' '}
+                      <span className="font-bold">Type:</span> {product?.type}{' '}
                     </span>
                   )}
-                  {product.product.year && (
+                  {product?.year && (
                     <span>
-                      <span className="font-bold">Year:</span>{' '}
-                      {product.product.year}{' '}
+                      <span className="font-bold">Year:</span> {product?.year}{' '}
                     </span>
                   )}
                 </div>
                 <div className="flex w-full flex-col items-start gap-2  text-zinc-500">
-                  {product.product.color && (
+                  {product?.color && (
                     <span>
-                      <span className="font-bold">Color:</span>{' '}
-                      {product.product.color}{' '}
+                      <span className="font-bold">Color:</span> {product?.color}{' '}
                     </span>
                   )}
 
-                  {product.product.condition && (
+                  {product?.condition && (
                     <span>
                       <span className="font-bold">Condition:</span>{' '}
-                      {product.product.condition}{' '}
+                      {product?.condition}{' '}
                     </span>
                   )}
-                  {product.product.phone && (
+                  {product?.phone && (
                     <span>
-                      <span className="font-bold">Phone:</span>{' '}
-                      {product.product.phone}{' '}
+                      <span className="font-bold">Phone:</span> {product?.phone}{' '}
                     </span>
                   )}
-                  {product.product.city && (
+                  {product?.city && (
                     <span>
-                      <span className="font-bold">City:</span>{' '}
-                      {product.product.city}{' '}
+                      <span className="font-bold">City:</span> {product?.city}{' '}
                     </span>
                   )}
                 </div>
