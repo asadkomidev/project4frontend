@@ -47,8 +47,10 @@ export const community = [
 ]
 
 import img from '../../../../public/logo.svg'
+import Loader from '@/components/UI/Loader.jsx'
 
 const ProductForm = ({ title, product }) => {
+  const [loading, setLoading] = useState(false)
   const [name, setName] = useState(product?.name || '')
   const [description, setDescription] = useState(product?.description || '')
   const [price, setPrice] = useState(product?.price || '')
@@ -128,7 +130,9 @@ const ProductForm = ({ title, product }) => {
           { ...data }
         )
       } else {
+        setLoading(true)
         await axios.post(`${process.env.NEXT_PUBLIC_API}/api/add-product`, data)
+        setLoading(false)
       }
 
       router.push('/dashboard')
@@ -151,6 +155,7 @@ const ProductForm = ({ title, product }) => {
 
   return (
     <>
+      {loading && <Loader />}
       <div className="flex min-h-full flex-1 flex-col justify-center pb-60 pt-16 sm:px-1 lg:px-1 lg:pt-40  ">
         <div className="mt-10 sm:mx-auto sm:w-full sm:max-w-7xl">
           <div className="pb-10">
