@@ -112,7 +112,7 @@ const Tabs = ({ categories }) => {
               item2={'Childcare'}
               item3={'Pets'}
               item4={'Lost & Found'}
-              item5={'Ride Share'}
+              item5={'Ride'}
               title={'Community'}
             />
           </Tab.Panel>
