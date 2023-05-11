@@ -8,22 +8,8 @@ function classNames(...classes) {
   return classes.filter(Boolean).join(' ')
 }
 
-export default function Product() {
-  const [product, setProduct] = useState({})
-  const router = useRouter()
-
-  const { slug } = router.query
-
-  useEffect(() => {
-    fetchProduct()
-  }, [])
-  const fetchProduct = async () => {
-    await axios
-      .get(`${process.env.NEXT_PUBLIC_API}/api/get-product/${slug}`)
-      .then((res) => {
-        setProduct(res.data.product)
-      })
-  }
+export default function Product({ product }) {
+  const p = product.product
 
   return (
     <>
@@ -35,7 +21,7 @@ export default function Product() {
               {/* Image selector */}
               <div className="mx-auto mt-6 hidden w-full max-w-2xl sm:block lg:max-w-none">
                 <Tab.List className="grid grid-cols-4 gap-6">
-                  {product?.images?.map((image, i) => (
+                  {p?.images?.map((image, i) => (
                     <Tab
                       key={i}
                       className="relative flex h-24 cursor-pointer items-center justify-center rounded-md bg-white text-sm font-medium uppercase text-gray-900 hover:bg-gray-50 focus:outline-none focus:ring focus:ring-opacity-50 focus:ring-offset-4"
@@ -65,7 +51,7 @@ export default function Product() {
               </div>
 
               <Tab.Panels className="aspect-h-1 aspect-w-1 w-full">
-                {product?.images?.map((image, i) => (
+                {p?.images?.map((image, i) => (
                   <Tab.Panel key={i}>
                     <img
                       src={image}
@@ -77,16 +63,16 @@ export default function Product() {
               </Tab.Panels>
             </Tab.Group>
 
-            {/* Product info */}
+            {/* p info */}
             <div className="mt-10 w-full sm:mt-16 sm:px-0 lg:mt-0 lg:w-80">
               <h1 className="text-2xl font-bold tracking-tight text-gray-900">
-                {product?.name}
+                {p?.name}
               </h1>
 
               <div className="mt-3">
-                <h2 className="sr-only">Product information</h2>
+                <h2 className="sr-only">p information</h2>
                 <p className="text-lg tracking-tight text-gray-900">
-                  ${product?.price}
+                  ${p?.price}
                 </p>
               </div>
 
@@ -96,7 +82,7 @@ export default function Product() {
                 <div
                   className="space-y-6 text-base text-gray-700"
                   dangerouslySetInnerHTML={{
-                    __html: product?.description,
+                    __html: p?.description,
                   }}
                 />
               </div>
@@ -105,49 +91,49 @@ export default function Product() {
               </div>
               <div className="mt-3 flex justify-between ">
                 <div className="flex w-80 flex-col gap-2 text-zinc-500">
-                  {product?.model && (
+                  {p?.model && (
                     <span>
                       {' '}
-                      <span className="font-bold">Model:</span> {product?.model}{' '}
+                      <span className="font-bold">Model:</span> {p?.model}{' '}
                     </span>
                   )}
-                  {product?.make && (
+                  {p?.make && (
                     <span>
-                      <span className="font-bold">Make:</span> {product?.make}{' '}
+                      <span className="font-bold">Make:</span> {p?.make}{' '}
                     </span>
                   )}
-                  {product?.type && (
+                  {p?.type && (
                     <span>
-                      <span className="font-bold">Type:</span> {product?.type}{' '}
+                      <span className="font-bold">Type:</span> {p?.type}{' '}
                     </span>
                   )}
-                  {product?.year && (
+                  {p?.year && (
                     <span>
-                      <span className="font-bold">Year:</span> {product?.year}{' '}
+                      <span className="font-bold">Year:</span> {p?.year}{' '}
                     </span>
                   )}
                 </div>
                 <div className="flex w-full flex-col items-start gap-2  text-zinc-500">
-                  {product?.color && (
+                  {p?.color && (
                     <span>
-                      <span className="font-bold">Color:</span> {product?.color}{' '}
+                      <span className="font-bold">Color:</span> {p?.color}{' '}
                     </span>
                   )}
 
-                  {product?.condition && (
+                  {p?.condition && (
                     <span>
                       <span className="font-bold">Condition:</span>{' '}
-                      {product?.condition}{' '}
+                      {p?.condition}{' '}
                     </span>
                   )}
-                  {product?.phone && (
+                  {p?.phone && (
                     <span>
-                      <span className="font-bold">Phone:</span> {product?.phone}{' '}
+                      <span className="font-bold">Phone:</span> {p?.phone}{' '}
                     </span>
                   )}
-                  {product?.city && (
+                  {p?.city && (
                     <span>
-                      <span className="font-bold">City:</span> {product?.city}{' '}
+                      <span className="font-bold">City:</span> {p?.city}{' '}
                     </span>
                   )}
                 </div>
@@ -171,29 +157,40 @@ export default function Product() {
   )
 }
 
-export async function getStaticPaths() {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_API}/api/all-products`)
-  const { products } = await res.json()
+// export async function getStaticPaths() {
+//   const res = await fetch(`${process.env.NEXT_PUBLIC_API}/api/all-products`)
+//   const { products } = await res.json()
 
-  const paths = products.map((product) => ({
-    params: { slug: product.slug },
-  }))
+//   const paths = products.map((product) => ({
+//     params: { slug: product.slug },
+//   }))
 
-  return {
-    paths,
-    fallback: false,
-  }
-}
+//   return {
+//     paths,
+//     fallback: false,
+//   }
+// }
 
-export async function getStaticProps({ params: { slug } }) {
+// export async function getStaticProps({ params: { slug } }) {
+//   const res = await fetch(
+//     `${process.env.NEXT_PUBLIC_API}/api/get-product/${slug}`
+//   )
+//   const product = await res.json()
+
+//   return {
+//     props: {
+//       product,
+//     },
+//   }
+// }
+
+export async function getServerSideProps({ params }) {
   const res = await fetch(
-    `${process.env.NEXT_PUBLIC_API}/api/get-product/${slug}`
+    `${process.env.NEXT_PUBLIC_API}/api/get-product/${params.slug}`
   )
   const product = await res.json()
 
   return {
-    props: {
-      product,
-    },
+    props: { product },
   }
 }
